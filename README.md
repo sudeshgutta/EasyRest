@@ -12,5 +12,5 @@ Example Usage :
  para.Add("param2","param2");
  string json = restServices.HttpGet(url, para);
  
- 
+
 At the current moment have implemented the wrapper for basic HTTP GET and POST requests, more work in progress...
