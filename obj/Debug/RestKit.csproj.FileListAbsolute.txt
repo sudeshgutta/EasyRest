@@ -1,0 +1,6 @@
+D:\Projects\RestCaller\RestKit\bin\Debug\RestKit.dll
+D:\Projects\RestCaller\RestKit\bin\Debug\RestKit.pdb
+D:\Projects\RestCaller\RestKit\bin\Debug\RestSharp.dll
+D:\Projects\RestCaller\RestKit\bin\Debug\RestSharp.xml
+D:\Projects\RestCaller\RestKit\obj\Debug\RestKit.dll
+D:\Projects\RestCaller\RestKit\obj\Debug\RestKit.pdb
