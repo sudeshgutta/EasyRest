@@ -16,4 +16,4 @@ Example Usage :
  string json = restServices.HttpGet(url, para);<br/>
  
 
-At the current moment have implemented the wrapper for basic HTTP GET and POST requests, more work in progress...
+At the current moment have implemented the wrapper for basic HTTP GET and POST requests, more work is in progress to enable consumption of rest services easily with a single function call.
