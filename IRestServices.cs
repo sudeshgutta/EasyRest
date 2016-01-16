@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using RestKit.Model;
+using System.Collections.Generic;
 
 namespace RestKit
 {
     public interface IRestServices
     {
-        string HttpGet(string url,  Dictionary<string, string> parameters);
-        string HttpPost(string url,  Dictionary<string, string> parameters);
+        CustomResponse  HttpGet(string url, Dictionary<string, string> parameters = null);
+        CustomResponse HttpPost(string url, Dictionary<string, string> parameters = null);
     }
 }

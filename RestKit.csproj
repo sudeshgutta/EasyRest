@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IRestServices.cs" />
+    <Compile Include="Model\CustomResponse.cs" />
     <Compile Include="RestServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

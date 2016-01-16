@@ -1,4 +1,5 @@
-﻿using RestSharp;
+﻿using RestKit.Model;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 
@@ -9,28 +10,33 @@ namespace RestKit
     /// </summary>
     public class RestServices :IRestServices
     {
-       
-        private string HttpRequest(IRestRequest request,string url, Dictionary<string, string> parameters)
-        {
-            IRestClient client = new RestClient();
-            IRestResponse response = new RestResponse();
 
-            client.BaseUrl = new Uri(url);
-            if (parameters != null)
+        private CustomResponse HttpRequest(IRestRequest request, string url, Dictionary<string, string> parameters = null)
+        {
+            try
             {
-                foreach (var item in parameters)
+                IRestClient client = new RestClient();
+                IRestResponse response = new RestResponse();
+
+                client.BaseUrl = new Uri(url);
+                if (parameters != null)
                 {
-                    request.AddParameter(item.Key, item.Value);
+                    foreach (var item in parameters)
+                    {
+                        request.AddParameter(item.Key, item.Value);
+                    }
                 }
+                response = client.Execute(request);
+                var myResponse = new CustomResponse();
+                myResponse.StatusCode = response.StatusCode;
+                myResponse.Content = response.Content;
+                return myResponse;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
             }
             
-            response = client.Execute(request);
-            if (response.ResponseStatus == ResponseStatus.Completed)
-            {
-                if (response.StatusCode == System.Net.HttpStatusCode.OK)
-                    return response.Content;
-            }
-            return null;
         }
         /// <summary>
         /// Sends a Http GET call to API, with specified parameters
@@ -38,11 +44,18 @@ namespace RestKit
         /// <param name="url"></param>
         /// <param name="parameters"></param>
         /// <returns></returns>
-        public string HttpGet(string url,  Dictionary<string,string> parameters)
+        public CustomResponse HttpGet(string url, Dictionary<string, string> parameters = null)
         {
-            IRestRequest request = new RestRequest();
-            request.Method = Method.GET;
-            return HttpRequest(request,url, parameters);
+            try
+            {
+                IRestRequest request = new RestRequest();
+                request.Method = Method.GET;
+                return HttpRequest(request, url, parameters);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         /// <summary>
         /// Sends a Http POST call to API, with specified parameters
@@ -50,11 +63,18 @@ namespace RestKit
         /// <param name="url"></param>
         /// <param name="parameters"></param>
         /// <returns></returns>
-        public string HttpPost(string url,  Dictionary<string, string> parameters)
+        public CustomResponse HttpPost(string url, Dictionary<string, string> parameters = null)
         {
-            IRestRequest request = new RestRequest();
-            request.Method = Method.POST;
-            return HttpRequest(request, url, parameters);
+            try
+            {
+                IRestRequest request = new RestRequest();
+                request.Method = Method.POST;
+                return HttpRequest(request, url, parameters);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
