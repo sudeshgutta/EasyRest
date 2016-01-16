@@ -1,5 +1,5 @@
-# RestKit
-An easy to use wrapper for HTTP in C#
+# SingleFuncRest
+An easy to use wrapper for HTTP/Rest API consumption in C#
 
 <b>License: Apache License 2.0</b>
 
