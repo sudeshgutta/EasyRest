@@ -13,7 +13,7 @@ Example Usage :
  Dictionary<string,string> para = new Dictionary<string,string>(); <br/>
  para.Add("param1","param1"); <br/>
  para.Add("param2","param2");<br/>
- string json = restServices.HttpGet(url, para);<br/>
+ string response = restServices.HttpGet(url, para);<br/>
  
 
 At the current moment have implemented the wrapper for basic HTTP GET and POST requests, more work is in progress to enable consumption of rest services easily with a single function call.
